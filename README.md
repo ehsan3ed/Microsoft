@@ -205,8 +205,7 @@ v0.1.0 – Initial Release
 🐞 Report issues: GitHub Issues
 
 📬 Maintainer: Ehsan Saeeidi (Pandenik)
-
-
+#امیدوارم با این قبیل پروژه ها عبور از تحریمهای تکنولوژی آسونتر بشه#
 
 Made with ❤️ by Ehsan Saeeidi (Pandenik)
 =======
