@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Niki - AI Coding Assistant
 
 A powerful VS Code extension that provides AI-powered coding assistance using both cloud and local language models.
@@ -153,3 +154,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 **Made with ❤️ by [Pandenik](https://pandenik.com)** 
+=======
+# Microsoft
+>>>>>>> 16932df270d6cfba6532b6b92e56a582ba26865f
