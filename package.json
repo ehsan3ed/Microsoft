@@ -1,0 +1,164 @@
+{
+    "name": "niki-1",
+    "displayName": "Niki - AI Coding Assistant",
+    "description": "A powerful coding assistant that supports both cloud and local language models",
+    "version": "0.1.0",
+    "publisher": "pandenik",
+    "engines": {
+        "vscode": "^1.74.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:niki-1.askAI",
+        "onCommand:niki-1.explainCode",
+        "onCommand:niki-1.refactorCode",
+        "onCommand:niki-1.generateCode",
+        "onCommand:niki-1.fixCode",
+        "onCommand:niki-1.setupModels"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "niki-1.askAI",
+                "title": "Ask Niki AI Assistant",
+                "category": "Niki AI Assistant"
+            },
+            {
+                "command": "niki-1.explainCode",
+                "title": "Explain Selected Code",
+                "category": "Niki AI Assistant"
+            },
+            {
+                "command": "niki-1.refactorCode",
+                "title": "Refactor Selected Code",
+                "category": "Niki AI Assistant"
+            },
+            {
+                "command": "niki-1.generateCode",
+                "title": "Generate Code",
+                "category": "Niki AI Assistant"
+            },
+            {
+                "command": "niki-1.fixCode",
+                "title": "Fix Code Issues",
+                "category": "Niki AI Assistant"
+            },
+            {
+                "command": "niki-1.setupModels",
+                "title": "Setup AI Models",
+                "category": "Niki AI Assistant"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "niki-1.askAI",
+                "key": "ctrl+shift+a",
+                "mac": "cmd+shift+a"
+            },
+            {
+                "command": "niki-1.explainCode",
+                "key": "ctrl+shift+e",
+                "mac": "cmd+shift+e"
+            },
+            {
+                "command": "niki-1.refactorCode",
+                "key": "ctrl+shift+r",
+                "mac": "cmd+shift+r"
+            },
+            {
+                "command": "niki-1.focusChat",
+                "key": "ctrl+shift+i",
+                "mac": "cmd+shift+i"
+            }
+        ],
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "niki-1",
+                    "title": "Niki AI Assistant",
+                    "icon": "resources/ai-assistant.svg"
+                }
+            ]
+        },
+        "views": {
+            "niki-1": [
+                {
+                    "id": "niki-1.chat",
+                    "name": "Niki AI Chat",
+                    "type": "webview"
+                }
+            ]
+        },
+        "configuration": {
+            "title": "Niki AI Assistant",
+            "properties": {
+                "aiCodingAssistant.cloudApiKey": {
+                    "type": "string",
+                    "default": "",
+                    "description": "API key for cloud language models (OpenAI, Anthropic, etc.)"
+                },
+                "aiCodingAssistant.cloudProvider": {
+                    "type": "string",
+                    "enum": [
+                        "openai",
+                        "anthropic",
+                        "google",
+                        "azure"
+                    ],
+                    "default": "openai",
+                    "description": "Cloud provider for language models"
+                },
+                "aiCodingAssistant.localApiUrl": {
+                    "type": "string",
+                    "default": "http://localhost:11434",
+                    "description": "URL for local API (Ollama, LM Studio, etc.)"
+                },
+                "aiCodingAssistant.localModel": {
+                    "type": "string",
+                    "default": "deepseek-coder-v2",
+                    "description": "Local model name to use (recommended: deepseek-coder-v2, codellama:13b, wizardcoder:7b)"
+                },
+                "aiCodingAssistant.useLocal": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Use local models instead of cloud models"
+                },
+                "aiCodingAssistant.maxTokens": {
+                    "type": "number",
+                    "default": 2000,
+                    "description": "Maximum tokens for AI responses"
+                },
+                "aiCodingAssistant.temperature": {
+                    "type": "number",
+                    "default": 0.7,
+                    "description": "Temperature for AI responses (0.0 to 1.0)"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.10",
+        "@types/node": "16.x",
+        "@types/vscode": "^1.74.0",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "@vscode/test-electron": "^2.5.2",
+        "eslint": "^8.0.0",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "axios": "^1.6.0",
+        "openai": "^4.20.0"
+    }
+}
